@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #FAF9F6;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection-background-color: #C2410C;
+    selection-color: #FAF9F6;
+  }
+
+  ::selection {
+    background-color: #C2410C;
+    color: #FAF9F6;
+  }
+
+  .font-serif {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+}
+
+/* Editorial Aesthetic Utilities */
+.editorial-border {
+  border-color: #E5E2D9;
+}
+
+.editorial-surface {
+  background-color: #F5F3ED;
+}
+
+.editorial-card {
+  background-color: #FFFFFF;
+  border-color: #E5E2D9;
+}
+
+.editorial-accent {
+  color: #C2410C;
+}
+
+.bg-editorial-accent {
+  background-color: #C2410C;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
