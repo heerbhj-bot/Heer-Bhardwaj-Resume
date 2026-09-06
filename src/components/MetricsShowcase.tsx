@@ -50,7 +50,7 @@ export const MetricsShowcase: React.FC = () => {
       id: 'markets',
       metric: '5',
       label: 'Global Markets',
-      explanation: 'Supported digital replenishment platform rollout at EY for a global FMCG (Unilever), shifting 5 markets from Excel to digital workflows.',
+      explanation: 'Supported digital replenishment platform rollout at EY for a global Tier-1 FMCG, shifting 5 markets from Excel to digital workflows.',
       proofContext: 'Authored business requirements and led cross-border client User Acceptance Testing (UAT)',
       tag: 'Transformation',
     },

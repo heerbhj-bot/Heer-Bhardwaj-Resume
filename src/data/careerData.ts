@@ -52,7 +52,7 @@ export const PROFILE_DATA: ProfileData = {
       title: 'Layer 2: Digital & Process Transformation',
       subtitle: 'Translating business problems into software workflows',
       description:
-        'Bridging the divide between frontline planners and software engineers. At EY Singapore, supported the rollout of a digital replenishment platform for a world-leading FMCG (Unilever), shifting 5 global markets from spreadsheet silos to standardized digital workflows.',
+        'Bridging the divide between frontline planners and software engineers. At EY Singapore, supported the rollout of a digital replenishment platform for a world-leading FMCG, shifting 5 global markets from spreadsheet silos to standardized digital workflows.',
       capabilities: [
         'Business & Functional Requirements',
         'Platform Logic & User Stories (Jira)',
@@ -190,7 +190,7 @@ export const TIMELINE_STAGES: TimelineNode[] = [
     scopeSummary: 'Promoted to lead end-to-end supply planning and S&OP for 50 specialty chemical SKUs across Europe, North America, and India.',
     verifiedScopePoints: [
       'Balanced demand forecasts against production capacities and distribution constraints across 3 continents.',
-      'Introduced a Fixed Schedule Variable Volume (FSVV) production model, boosting operational efficiency by 27%.',
+      'Introduced a Fixed Schedule Variable Volume (FSVV) production model, boosting operational efficiency by 27% (monthly output increased from ~70 MT to ~90 MT).',
       'Orchestrated cross-functional planning for 4 new product launches, improving launch operational efficiency by 35%.',
       'Automated SAP S/4HANA PO workflows (+65% accuracy) and overhauled S&OP dashboards (22% demurrage savings over 3 years).',
     ],
@@ -220,7 +220,7 @@ export const TIMELINE_STAGES: TimelineNode[] = [
     roleType: 'Global Enterprise Transformation',
     scopeSummary: 'Translating real-world planning expertise into platform capabilities for a Tier-1 FMCG giant across 5 markets.',
     verifiedScopePoints: [
-      'Supported implementation of a digital replenishment platform for a world-leading FMCG (Unilever).',
+      'Supported implementation of a digital replenishment platform for a world-leading FMCG enterprise.',
       'Documented business requirements, drafted functional platform logic, and refined Jira user stories in agile sprints.',
       'Led client User Acceptance Testing (UAT) sessions, validated planning algorithms against business edge cases.',
       'Built project governance trackers and executive testing dashboards ensuring seamless release readiness.',
@@ -422,7 +422,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Collaborated with plant production managers and shift supervisors to train staff on the fixed rhythm.',
     ],
     outcome: [
-      'Increased overall operational efficiency by 27%.',
+      'Increased overall operational efficiency by 27% (output increased from ~70 MT/month to ~90 MT/month).',
       'Significantly improved line capacity utilization and reduced chemical cleaning waste between product runs.',
     ],
     metrics: ['+27% Operational Efficiency', 'Optimized Line Capacity', 'Reduced Changeover Waste'],
@@ -477,7 +477,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     subtitle: 'Transitioning 5 global markets from manual Excel planning to a standardized digital workflow',
     tag: 'Consulting / Digital Transformation',
     challenge:
-      'One of the world’s largest FMCG organisations (Unilever) managed regional inventory replenishment through fractured, individual spreadsheets across multiple countries, causing inconsistent replenishment rules and limited global visibility.',
+      'One of the world’s largest FMCG organisations managed regional inventory replenishment through fractured, individual spreadsheets across multiple countries, causing inconsistent replenishment rules and limited global visibility.',
     role:
       'Business Consulting Intern – Supply Chain Operations & Transformation, embedded in the core consulting and client delivery team.',
     approach: [
@@ -640,8 +640,8 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     id: 't-01',
     quote:
       'Heer demonstrated exceptional ownership and learning agility, taking on end-to-end supply planning responsibilities across complex global markets far ahead of typical career timelines.',
-    name: '[Senior Operations Leader]',
-    designation: 'Supply Chain Director / Mentor',
+    name: 'Jeetukumar Singh',
+    designation: 'Deputy Manager | Supply Planning Lead',
     company: 'Galaxy Surfactants Ltd',
     relationship: 'Direct Supervisor & Operations Head',
     isPlaceholder: true,

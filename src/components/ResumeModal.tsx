@@ -28,7 +28,7 @@ ${PROFILE_DATA.summary}
 PROFESSIONAL EXPERIENCE
 ERNST & YOUNG - Singapore (May 2026 - Present)
 Business Consulting – Supply Chain Operations & Transformation Intern
-• Translated planning expertise into functional platform capabilities by supporting implementation of a digital inventory replenishment platform for one of the world's largest FMCG organisations (Unilever). Enabling 5 global markets to shift from manual Excel-driven planning to a standardised digital workflow.
+• Translated planning expertise into functional platform capabilities by supporting implementation of a digital inventory replenishment platform for one of the world's largest FMCG organisations. Enabling 5 global markets to shift from manual Excel-driven planning to a standardised digital workflow.
 • Partnered with client stakeholders and development teams to document business requirements and platform logics, refine user stories and support agile project delivery through Jira.
 • Led User Acceptance testing (UAT) sessions with client users, validating business scenarios, planning logic and platform functionality while closely coordinating issue resolution with development teams.
 • Developed UAT trackers, testing dashboards and project progress reports for client, improving project governance and release readiness throughout implementation.
@@ -162,7 +162,7 @@ TECHNICAL & ANALYTICAL
               </div>
               <ul className="list-disc list-outside pl-4 space-y-1 text-xs text-stone-800 leading-relaxed font-serif">
                 <li>
-                  Translated planning expertise into functional platform capabilities by supporting implementation of a digital inventory replenishment platform for one of the world&apos;s largest FMCG organisations (Unilever). Enabling 5 global markets to shift from manual Excel-driven planning to a standardised digital workflow.
+                  Translated planning expertise into functional platform capabilities by supporting implementation of a digital inventory replenishment platform for one of the world&apos;s largest FMCG organisations. Enabling 5 global markets to shift from manual Excel-driven planning to a standardised digital workflow.
                 </li>
                 <li>
                   Partnered with client stakeholders and development teams to document business requirements and platform logics, refine user stories and support agile project delivery through Jira.

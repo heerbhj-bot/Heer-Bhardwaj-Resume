@@ -23,7 +23,7 @@ export const RecruiterDrawer: React.FC<RecruiterDrawerProps> = ({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-[11px] font-mono font-bold text-[#FED7AA] uppercase tracking-wider">
-                Recruiter View &bull; Under 30 Seconds
+                Recruiter View &bull; 20-Second Pitch
               </span>
               <span className="text-[10px] font-mono bg-stone-800 text-stone-300 px-2 py-0.5 rounded-full border border-stone-700">
                 Summary
@@ -89,7 +89,7 @@ export const RecruiterDrawer: React.FC<RecruiterDrawerProps> = ({
               EY | Digital Supply Chain | UAT | Requirements
             </div>
             <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-              Standardized digital replenishment platform for Unilever across 5 global markets, translating operational logic into Jira user stories and leading client UAT.
+              Standardized digital replenishment platform for a Tier-1 global FMCG across 5 markets, translating operational logic into Jira user stories and leading client UAT.
             </p>
           </div>
 

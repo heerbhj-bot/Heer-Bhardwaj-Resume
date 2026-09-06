@@ -6,7 +6,7 @@ export const EYScopeDiagram: React.FC = () => {
     {
       num: '01',
       title: 'Business Problem',
-      desc: 'Unilever managing replenishment in isolated spreadsheets across countries with no unified visibility.',
+      desc: 'Global FMCG enterprise managing replenishment in isolated spreadsheets across countries with no unified visibility.',
     },
     {
       num: '02',

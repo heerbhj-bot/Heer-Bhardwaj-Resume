@@ -195,14 +195,14 @@ export const CaseStudiesSection: React.FC = () => {
       subtitle: 'EY / Digital Inventory Replenishment / 5 Global Markets / UAT',
       tag: 'Enterprise Digital Transformation Consulting',
       problemSummary:
-        'Unilever managing multi-echelon replenishment across disparate spreadsheets with zero centralized visibility, leading to inventory imbalances and lost sales.',
+        'A world-leading FMCG enterprise managing multi-echelon replenishment across disparate spreadsheets with zero centralized visibility, leading to inventory imbalances and lost sales.',
       myRole:
         'Business Consulting Intern (Supply Chain & Operations, EY Singapore). Functional translator bridging market planners and platform software developers.',
       impactSummary:
         'Standardized automated replenishment platform across 5 global markets with zero launch calculation defects.',
       metrics: ['5 Global Markets', 'Multi-Echelon Logic', 'Zero Launch Defects'],
       context:
-        'At EY Singapore, I supported the deployment of a modern digital replenishment platform for a world-leading FMCG enterprise (Unilever), transitioning 5 international business units from disparate spreadsheets to automated replenishment.',
+        'At EY Singapore, I supported the deployment of a modern digital replenishment platform for a world-leading FMCG enterprise, transitioning 5 international business units from disparate spreadsheets to automated replenishment.',
       theProblem:
         'Each regional market utilized localized Excel calculators with idiosyncratic assumptions, making global inventory visibility and centralized replenishment planning impossible.',
       whatIDid:

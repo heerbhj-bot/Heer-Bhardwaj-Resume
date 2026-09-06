@@ -1,214 +1,458 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowRight, CheckCircle2, MapPin, Briefcase } from 'lucide-react';
+import { ChevronRight, ArrowRight, CheckCircle2, X, Plus, ExternalLink, Sparkles } from 'lucide-react';
 
-interface JourneyStage {
+interface StageData {
+  id: string;
   year: string;
-  role: string;
+  title: string;
   company: string;
-  location: string;
-  scope: string; // One-line scope
-  proof: string; // One proof point
+  oneLineDesc: string;
+  highlightMetric: string;
+  responsibility: string[];
+  impact: string[];
+  whatItTaughtMe: string;
+  isEY?: boolean;
+  eyDetails?: {
+    workedOn: string;
+    whatIDid: string[];
+    scale: string;
+    bridgeSteps: string[];
+    quote: string;
+  };
 }
 
 export const TimelineSection: React.FC = () => {
-  const stages: JourneyStage[] = [
+  const [selectedStage, setSelectedStage] = useState<StageData | null>(null);
+
+  const stages: StageData[] = [
     {
+      id: 'intern',
       year: '2021',
-      role: 'Supply Chain Intern',
-      company: 'Galaxy Surfactants',
-      location: 'India',
-      scope: 'Ground-level plant operations, scheduling transactions, and warehouse materials management.',
-      proof: 'Independently learned supply chain during COVID; converted internship to full-time Management Trainee.',
+      title: 'Supply Chain Intern',
+      company: 'Galaxy Surfactants Ltd.',
+      oneLineDesc: 'Shop-floor visibility & port cost tracking',
+      highlightMetric: 'Daily MIS & D&D Reporting',
+      responsibility: [
+        'Initiated daily S&OP MIS reporting dashboard comparing target vs. actuals in real time.',
+        'Tracked detention and demurrage (D&D) costs for port shipments and raw material containers.',
+        'Observed manufacturing line changeovers and warehouse inventory staging.',
+      ],
+      impact: [
+        'Converted initial internship into full-time Management Trainee appointment.',
+        'Established early warning alerts for container dwell times at shipping ports.',
+      ],
+      whatItTaughtMe: 'Visibility across the entire chain is the prerequisite for all operational control.',
     },
     {
-      year: '2022',
-      role: 'Management Trainee',
-      company: 'Galaxy Surfactants',
-      location: 'India',
-      scope: 'Cross-functional rotation across plant scheduling, procurement, and logistics operations.',
-      proof: 'Mastered SAP S/4HANA PP transactions and plant changeover sequencing within 6 months.',
+      id: 'trainee',
+      year: '2021–22',
+      title: 'Management Trainee',
+      company: 'Galaxy Surfactants Ltd.',
+      oneLineDesc: 'Production planning for 33 SKUs & SAP automation',
+      highlightMetric: '33 SKUs | 500 MT Monthly',
+      responsibility: [
+        'In charge of production planning and distribution for specialty chemicals of 33 SKUs in 1 unit.',
+        'Created purchase orders in SAP S/4HANA for raw material procurement.',
+        'Initiated automation of purchase order workflows in SAP S/4HANA.',
+      ],
+      impact: [
+        '65% improvement in on-time PO accuracy via automated SAP workflows.',
+        'Eliminated manual entry delays for recurring supplier purchase orders.',
+      ],
+      whatItTaughtMe: 'Automating routine transactional tasks frees planners to anticipate disruptions rather than react to them.',
     },
     {
-      year: '2022–23',
-      role: 'Junior Officer',
-      company: 'Galaxy Surfactants',
-      location: 'India',
-      scope: 'Procurement scheduling for ~6,000 MT/month of Lauryl Alcohol (~60% of plant raw material volume).',
-      proof: 'Reduced plant stockouts by 16% through dynamic consumption buffers and maritime vessel tracking.',
+      id: 'junior-officer',
+      year: '2022–24',
+      title: 'Junior Officer',
+      company: 'Galaxy Surfactants Ltd.',
+      oneLineDesc: 'Performance chemicals planning & RM scheduling',
+      highlightMetric: '50 SKUs | ~6,000 MT RM',
+      responsibility: [
+        'In charge of performance chemicals, handling planning and distribution of 50 SKUs under 2 units.',
+        'Managed raw material procurement scheduling for Lauryl Alcohol (~6,000 MT/month, ~60% RM demand).',
+        'Balanced production capacity, supplier schedules, and warehouse inventory availability.',
+      ],
+      impact: [
+        '16% reduction in factory stockouts through dynamic raw material consumption buffers.',
+        'Trained 2 incoming management trainees on MIS reporting and D&D analytics.',
+      ],
+      whatItTaughtMe: 'A planner\'s real value lies in resolving supplier-to-line bottlenecks before they hit production.',
     },
     {
-      year: '2023–25',
-      role: 'Officer / Supply Planner',
-      company: 'Galaxy Surfactants',
-      location: 'India',
-      scope: 'End-to-end supply planning and S&OP for 50 specialty chemical SKUs (700 MT) across Europe, North America, and India.',
-      proof: 'Designed FSVV production model delivering +27% efficiency, cut demurrage by 22%, and led 4 NPI launches.',
+      id: 'officer',
+      year: '2024–25',
+      title: 'Officer / Supply Planner',
+      company: 'Galaxy Surfactants Ltd.',
+      oneLineDesc: 'Global supply planning & S&OP leadership',
+      highlightMetric: '50 SKUs | 700 MT Global',
+      responsibility: [
+        'Managed end-to-end supply planning and S&OP for 50 specialty chemical SKUs across Europe, North America, and India.',
+        'Designed and implemented Fixed Schedule Variable Volume (FSVV) production model.',
+        'Led cross-functional planning for 4 new product launches (NPIs) across manufacturing and procurement.',
+        'Redesigned S&OP visibility dashboards and weekly Detention & Demurrage reporting.',
+      ],
+      impact: [
+        '27% operational efficiency improvement through improved production planning & capacity utilisation.',
+        '22% reduction in demurrage expenses over 3 years.',
+        '35% improvement in operational efficiency during 4 new product rollouts.',
+      ],
+      whatItTaughtMe: 'Real supply chain resilience requires balancing plant production realities with commercial customer commitments.',
     },
     {
-      year: '2025',
-      role: 'MBA — Singapore Management Univ.',
-      company: 'SMU',
-      location: 'Singapore',
-      scope: 'Elevating operational mastery to enterprise corporate strategy, financial valuation, and global risk.',
-      proof: 'Elected Career Secretary by MBA cohort peers; connecting plant scheduling to balance-sheet working capital.',
+      id: 'mba',
+      year: '2025–26',
+      title: 'MBA — SMU',
+      company: 'Singapore Management University',
+      oneLineDesc: 'Corporate valuation, working capital & strategy',
+      highlightMetric: 'Career Secretary, ELC MBA',
+      responsibility: [
+        'Full-time Master of Business Administration in Singapore focusing on strategic operations and enterprise finance.',
+        'Elected Career Secretary for the Executive Leadership Committee (ELC) MBA 2025 cohort.',
+        'Analyzed global supply chain network resilience, balance-sheet working capital, and tech disruption.',
+      ],
+      impact: [
+        'Synthesized shop-floor operational experience with executive financial and strategic decision frameworks.',
+        'Represented MBA cohort in employer relations and corporate leadership forums across Singapore.',
+      ],
+      whatItTaughtMe: 'Operational decisions only succeed when they create measurable value for working capital, customers, and corporate strategy.',
     },
     {
-      year: '2026',
-      role: 'EY — Supply Chain Transformation',
-      company: 'Ernst & Young',
-      location: 'Singapore',
-      scope: 'Digital replenishment platform rollout for global FMCG (Unilever) across 5 international markets.',
-      proof: 'Led client UAT sessions and authored functional requirements to migrate markets from Excel to platform.',
+      id: 'ey',
+      year: '2026–',
+      title: 'EY — Digital Transformation',
+      company: 'Ernst & Young (EY) Singapore',
+      oneLineDesc: 'Digital replenishment platform implementation',
+      highlightMetric: '5 Global Markets',
+      isEY: true,
+      eyDetails: {
+        workedOn: 'Digital inventory replenishment transformation for a global Tier-1 FMCG organisation.',
+        whatIDid: [
+          'Translated supply-planning knowledge into functional platform capabilities.',
+          'Worked with business stakeholders and development teams.',
+          'Documented business requirements and platform logic.',
+          'Refined user stories and supported Agile delivery via Jira.',
+          'Led User Acceptance Testing (UAT) sessions, validating business scenarios and platform functionality.',
+          'Built UAT trackers, testing dashboards, and project progress reports for governance.',
+        ],
+        scale: '5 global markets shifting from manual Excel planning to standardised digital workflow',
+        bridgeSteps: [
+          'Supply Chain Knowledge',
+          'Business Requirements',
+          'Digital Solution',
+          'UAT',
+          'Implementation',
+        ],
+        quote: 'I learned to connect how supply chains work with how technology can improve them.',
+      },
+      responsibility: [
+        'Translated planning expertise into functional digital platform capabilities for global FMCG client.',
+        'Partnered with client stakeholders and development teams to document business logic and refine Jira user stories.',
+        'Led client UAT sessions and built testing progress dashboards for project governance.',
+      ],
+      impact: [
+        'Enabled 5 global markets to transition from manual Excel-driven planning to a standardised digital workflow.',
+        'Ensured release readiness and business validation across complex multi-echelon replenishment scenarios.',
+      ],
+      whatItTaughtMe: 'Digital transformation succeeds only when software developers understand the operational reality of planners.',
     },
   ];
 
-  const [activeIdx, setActiveIdx] = useState<number>(stages.length - 1);
-  const activeStage = stages[activeIdx];
-
   return (
-    <section id="how-i-got-here" className="py-16 sm:py-20 bg-[#FAF9F6] border-b border-[#E5E2D9]">
+    <section id="journey" className="py-16 sm:py-20 bg-[#FAF9F6] border-b border-[#E5E2D9] scroll-mt-28 lg:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mb-10">
-          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#C2410C] block mb-1.5">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-8">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#C2410C] block mb-1">
             Career Journey
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-normal text-[#1A1A1A] tracking-tight">
-            How I got here
+            HOW I GOT HERE
           </h2>
-          <p className="mt-2 text-base font-serif italic text-stone-700">
-            &ldquo;Increasing responsibility, not simply increasing years.&rdquo;
+          <p className="mt-2 text-sm sm:text-base font-serif italic text-stone-700">
+            &ldquo;Increasing responsibility, not merely increasing years.&rdquo;
           </p>
         </div>
 
-        {/* Desktop Horizontal Interactive Stepper */}
-        <div className="hidden lg:block mb-8">
-          <div className="relative flex items-center justify-between">
-            {/* Connecting line */}
-            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-[#E5E2D9] z-0"></div>
+        {/* Horizontal Interactive Timeline (Desktop) / Vertical (Mobile) */}
+        <div className="bg-white rounded-xl border border-[#E5E2D9] p-4 sm:p-6 shadow-2xs">
+          <div className="flex items-center justify-between mb-4 pb-2 border-b border-stone-100">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 font-semibold">
+              Interactive Timeline (Click any stage to open details &amp; proof)
+            </span>
+            <span className="text-[10px] font-mono text-[#C2410C]">
+              6 Career Milestones
+            </span>
+          </div>
 
+          {/* Desktop Horizontal Stepper */}
+          <div className="hidden lg:grid grid-cols-6 gap-2">
             {stages.map((stage, idx) => {
-              const isSelected = activeIdx === idx;
+              const isSelected = selectedStage?.id === stage.id;
               return (
                 <button
-                  key={stage.role + stage.year}
-                  onClick={() => setActiveIdx(idx)}
-                  className="relative z-10 flex flex-col items-center group cursor-pointer focus:outline-hidden"
-                  id={`timeline-step-${idx}`}
+                  key={stage.id}
+                  onClick={() => setSelectedStage(stage)}
+                  className={`p-3 rounded-xl text-left border transition-all cursor-pointer relative flex flex-col justify-between group ${
+                    isSelected
+                      ? 'bg-[#FFF7ED] border-[#C2410C] ring-1 ring-[#C2410C] shadow-xs'
+                      : 'bg-[#FAF9F6] border-[#E5E2D9] hover:border-[#C2410C]/60 hover:bg-white'
+                  }`}
+                  id={`stage-card-${stage.id}`}
                 >
-                  <span
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-mono font-bold transition-all border ${
-                      isSelected
-                        ? 'bg-[#1A1A1A] text-[#FAF9F6] border-[#1A1A1A] ring-4 ring-[#FED7AA]'
-                        : 'bg-white text-stone-600 border-[#E5E2D9] group-hover:border-[#C2410C] group-hover:text-[#C2410C]'
-                    }`}
-                  >
-                    0{idx + 1}
-                  </span>
-                  <span
-                    className={`mt-2 text-xs font-mono transition-colors ${
-                      isSelected ? 'text-[#C2410C] font-semibold' : 'text-stone-500'
-                    }`}
-                  >
-                    {stage.year}
-                  </span>
-                  <span
-                    className={`text-xs font-serif text-center max-w-[120px] line-clamp-1 mt-0.5 ${
-                      isSelected ? 'text-[#1A1A1A] font-bold' : 'text-stone-700'
-                    }`}
-                  >
-                    {stage.role}
-                  </span>
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] font-mono font-bold text-[#C2410C]">
+                        {stage.year}
+                      </span>
+                      <span className="text-[9px] font-mono text-stone-400">
+                        0{idx + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xs font-serif font-bold text-[#1A1A1A] leading-snug group-hover:text-[#C2410C] transition-colors">
+                      {stage.title}
+                    </h3>
+
+                    <p className="text-[11px] font-serif text-stone-600 mt-1 line-clamp-2 leading-tight">
+                      {stage.oneLineDesc}
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-2 border-t border-stone-200/80">
+                    <div className="text-[11px] font-mono font-semibold text-[#1A1A1A] truncate">
+                      {stage.highlightMetric}
+                    </div>
+                    <div className="mt-1 flex items-center justify-between text-[10px] font-mono text-[#C2410C]">
+                      <span>+ explore</span>
+                      <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Mobile Vertical Stepper */}
+          <div className="lg:hidden space-y-3">
+            {stages.map((stage) => {
+              const isSelected = selectedStage?.id === stage.id;
+              return (
+                <button
+                  key={stage.id}
+                  onClick={() => setSelectedStage(stage)}
+                  className={`w-full p-3.5 rounded-xl text-left border transition-all cursor-pointer flex items-center justify-between ${
+                    isSelected
+                      ? 'bg-[#FFF7ED] border-[#C2410C] ring-1 ring-[#C2410C]'
+                      : 'bg-[#FAF9F6] border-[#E5E2D9]'
+                  }`}
+                >
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-[#C2410C]">
+                        {stage.year}
+                      </span>
+                      <span className="text-xs font-serif font-bold text-[#1A1A1A]">
+                        {stage.title}
+                      </span>
+                    </div>
+                    <div className="text-xs text-stone-600 font-serif">
+                      {stage.oneLineDesc}
+                    </div>
+                    <div className="text-xs font-mono font-medium text-[#1A1A1A]">
+                      {stage.highlightMetric}
+                    </div>
+                  </div>
+                  <div className="text-xs font-mono text-[#C2410C] font-semibold pl-2 shrink-0">
+                    + explore &rarr;
+                  </div>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Mobile Vertical Stepper Navigation */}
-        <div className="lg:hidden flex overflow-x-auto gap-2 pb-4 mb-4 scrollbar-none">
-          {stages.map((stage, idx) => {
-            const isSelected = activeIdx === idx;
-            return (
-              <button
-                key={stage.role + stage.year}
-                onClick={() => setActiveIdx(idx)}
-                className={`px-3 py-2 rounded-lg border shrink-0 text-left transition-all ${
-                  isSelected
-                    ? 'bg-white border-[#C2410C] ring-1 ring-[#C2410C] shadow-2xs'
-                    : 'bg-white/80 border-[#E5E2D9] text-stone-600'
-                }`}
-              >
-                <div className="text-[10px] font-mono text-[#C2410C]">{stage.year}</div>
-                <div className="text-xs font-serif font-bold text-[#1A1A1A] truncate max-w-[140px]">
-                  {stage.role}
+        {/* Career Progression Visual */}
+        <div className="mt-8 p-5 rounded-xl bg-white border border-[#E5E2D9] shadow-2xs">
+          <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400 mb-2">
+            Career Progression Arc
+          </div>
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-serif font-bold text-[#1A1A1A]">
+            <span className="px-2.5 py-1 rounded-md bg-[#FAF9F6] border border-[#E5E2D9]">
+              INTERN
+            </span>
+            <span className="text-[#C2410C]">&rarr;</span>
+            <span className="px-2.5 py-1 rounded-md bg-[#FAF9F6] border border-[#E5E2D9]">
+              MANAGEMENT TRAINEE
+            </span>
+            <span className="text-[#C2410C]">&rarr;</span>
+            <span className="px-2.5 py-1 rounded-md bg-[#FAF9F6] border border-[#E5E2D9]">
+              JUNIOR OFFICER
+            </span>
+            <span className="text-[#C2410C]">&rarr;</span>
+            <span className="px-2.5 py-1 rounded-md bg-[#FAF9F6] border border-[#E5E2D9]">
+              OFFICER
+            </span>
+            <span className="text-[#C2410C]">&rarr;</span>
+            <span className="px-2.5 py-1 rounded-md bg-[#FAF9F6] border border-[#E5E2D9]">
+              MBA
+            </span>
+            <span className="text-[#C2410C]">&rarr;</span>
+            <span className="px-2.5 py-1 rounded-md bg-[#FFF7ED] border border-[#FED7AA] text-[#C2410C]">
+              EY TRANSFORMATION
+            </span>
+          </div>
+
+          <div className="mt-3 pt-3 border-t border-[#E5E2D9] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <p className="text-xs sm:text-sm font-serif text-stone-700">
+              <span className="font-bold text-[#1A1A1A]">More responsibility. More complex problems. Broader perspective.</span>
+            </p>
+            <p className="text-xs font-serif italic text-stone-600">
+              &ldquo;My titles changed gradually. The responsibility I was trusted with grew faster.&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Detailed Modal / Slide-Out Side Panel for Selected Stage */}
+        {selectedStage && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#1A1A1A]/70 backdrop-blur-xs">
+            <div className="bg-[#FAF9F6] rounded-2xl border border-[#E5E2D9] shadow-2xl max-w-2xl w-full my-auto max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-98 duration-150">
+              {/* Modal Header */}
+              <div className="p-5 sm:p-6 bg-[#1A1A1A] text-[#FAF9F6] flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-mono font-bold text-[#FED7AA]">
+                      {selectedStage.year}
+                    </span>
+                    <span className="text-[11px] font-mono text-stone-400">
+                      &bull; {selectedStage.company}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-serif font-normal text-[#FAF9F6]">
+                    {selectedStage.title}
+                  </h3>
+                  <p className="text-xs text-stone-300 font-mono mt-1">
+                    Highlight: {selectedStage.highlightMetric}
+                  </p>
                 </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active Stage Highlight Card */}
-        <div className="bg-white rounded-xl border border-[#E5E2D9] p-6 sm:p-8 shadow-2xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#E5E2D9]">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-mono font-semibold text-[#C2410C]">
-                  {activeStage.year}
-                </span>
-                <span className="text-[11px] font-mono text-stone-500 bg-[#F5F3ED] px-2 py-0.5 rounded-md border border-[#E5E2D9] flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-[#C2410C]" />
-                  {activeStage.location}
-                </span>
+                <button
+                  onClick={() => setSelectedStage(null)}
+                  className="p-1 text-stone-400 hover:text-white transition-colors cursor-pointer rounded-lg hover:bg-stone-800"
+                  aria-label="Close details"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#1A1A1A]">
-                {activeStage.role}
-              </h3>
-              <div className="text-xs text-stone-600 font-serif italic mt-0.5">
-                {activeStage.company}
-              </div>
-            </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setActiveIdx((prev) => (prev > 0 ? prev - 1 : stages.length - 1))}
-                className="px-2.5 py-1 text-xs font-mono rounded border border-[#E5E2D9] hover:bg-[#F5F3ED] text-stone-600 transition-colors"
-                title="Previous step"
-              >
-                &larr; Prev
-              </button>
-              <button
-                onClick={() => setActiveIdx((prev) => (prev < stages.length - 1 ? prev + 1 : 0))}
-                className="px-2.5 py-1 text-xs font-mono rounded border border-[#E5E2D9] hover:bg-[#F5F3ED] text-stone-600 transition-colors"
-                title="Next step"
-              >
-                Next &rarr;
-              </button>
+              {/* Modal Content */}
+              <div className="p-6 space-y-6">
+                {/* Special EY Transformation View */}
+                {selectedStage.isEY && selectedStage.eyDetails ? (
+                  <div className="space-y-5">
+                    <div className="p-4 rounded-xl bg-white border border-[#E5E2D9]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#C2410C] font-bold block mb-1">
+                        WHAT I WORKED ON
+                      </span>
+                      <p className="text-sm font-serif text-[#1A1A1A]">
+                        {selectedStage.eyDetails.workedOn}
+                      </p>
+                      <div className="mt-2 text-xs font-mono text-stone-500">
+                        Scale: <span className="font-semibold text-stone-800">{selectedStage.eyDetails.scale}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white border border-[#E5E2D9]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 font-bold block mb-2">
+                        WHAT I DID
+                      </span>
+                      <div className="space-y-1.5">
+                        {selectedStage.eyDetails.whatIDid.map((item, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs text-stone-800">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#C2410C] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* The Visual Bridge */}
+                    <div className="p-4 rounded-xl bg-[#F5F3ED] border border-[#E5E2D9]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#C2410C] font-bold block mb-2">
+                        THE BRIDGE
+                      </span>
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs font-serif font-semibold text-[#1A1A1A]">
+                        {selectedStage.eyDetails.bridgeSteps.map((step, idx) => (
+                          <React.Fragment key={step}>
+                            <span className="px-2 py-1 bg-white rounded border border-[#E5E2D9]">
+                              {step}
+                            </span>
+                            {idx < selectedStage.eyDetails!.bridgeSteps.length - 1 && (
+                              <span className="text-[#C2410C]">&rarr;</span>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                      <p className="mt-3 text-xs font-serif italic text-stone-700">
+                        &ldquo;{selectedStage.eyDetails.quote}&rdquo;
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    {/* RESPONSIBILITY */}
+                    <div>
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C2410C] block mb-2">
+                        RESPONSIBILITY
+                      </span>
+                      <div className="space-y-2">
+                        {selectedStage.responsibility.map((r, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-stone-800">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-stone-400 shrink-0 mt-0.5" />
+                            <span>{r}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* IMPACT */}
+                    <div className="p-4 rounded-xl bg-white border border-[#E5E2D9]">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1A1A1A] block mb-2">
+                        IMPACT &amp; OUTCOMES
+                      </span>
+                      <div className="space-y-2">
+                        {selectedStage.impact.map((imp, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs sm:text-sm font-serif font-bold text-[#1A1A1A]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C2410C] mt-2 shrink-0"></span>
+                            <span>{imp}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* WHAT IT TAUGHT ME */}
+                    <div className="p-4 rounded-xl bg-[#FFF7ED] border border-[#FED7AA]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#C2410C] font-bold block mb-1">
+                        WHAT IT TAUGHT ME
+                      </span>
+                      <p className="text-xs sm:text-sm font-serif italic text-stone-800">
+                        &ldquo;{selectedStage.whatItTaughtMe}&rdquo;
+                      </p>
+                    </div>
+                  </>
+                )}
+
+                <div className="pt-2 flex justify-end">
+                  <button
+                    onClick={() => setSelectedStage(null)}
+                    className="px-4 py-2 text-xs font-mono font-semibold rounded-lg bg-[#1A1A1A] text-white hover:bg-[#C2410C] transition-colors cursor-pointer"
+                  >
+                    Close stage
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
-            {/* One-line Scope */}
-            <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-stone-500 block mb-2">
-                Scope (≤ 25 Words)
-              </span>
-              <p className="text-sm font-serif text-stone-800 leading-relaxed bg-[#FAF9F6] p-4 rounded-lg border border-[#E5E2D9]">
-                {activeStage.scope}
-              </p>
-            </div>
-
-            {/* One Proof Point */}
-            <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#C2410C] block mb-2">
-                Proof Point
-              </span>
-              <p className="text-sm font-serif text-stone-800 leading-relaxed bg-[#FFF7ED] p-4 rounded-lg border border-[#FED7AA]">
-                {activeStage.proof}
-              </p>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
