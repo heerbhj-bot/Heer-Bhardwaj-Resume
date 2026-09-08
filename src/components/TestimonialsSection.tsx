@@ -17,6 +17,16 @@ export const TestimonialsSection: React.FC = () => {
       id: 'testimonial-01',
       tag: 'TESTIMONIAL 01',
       quote:
+        'Heer demonstrates strong knowledge of supply chain operations and applies it efficiently at work. She is highly adaptable, eager to learn, and consistently shows strong willingness to grow and develop.',
+      name: 'Priyanka Mani',
+      designation: 'Senior Manager | Supply Chain Operations & Transformation Team',
+      company: 'Ernst & Young (EY) Singapore',
+      isPlaceholder: false,
+    },
+    {
+      id: 'testimonial-02',
+      tag: 'TESTIMONIAL 02',
+      quote:
         `Heer Bhardwaj has consistently demonstrated exceptional learning agility, ownership, and problem-solving abilities, rapidly evolving into an end-to-end Supply Planner while successfully managing complex supply chains, driving process improvements, and delivering strong customer service outcomes. She has played a pivotal role in achieving high CDI performance, improving SAP and planning hygiene, reducing operational bottlenecks, and leading key knowledge transfer initiatives, reflecting her readiness for expanded responsibilities and the next level of leadership.\n\nA highly committed and solution-oriented professional, Heer combines analytical thinking with strong stakeholder management and execution excellence. Her track record of driving results, embracing new challenges, and consistently improving planning processes makes her an asset with significant potential for growth and higher responsibilities`,
       name: 'Jeetukumar Singh',
       designation: 'Deputy Manager | Supply Planning Lead',
@@ -24,24 +34,14 @@ export const TestimonialsSection: React.FC = () => {
       isPlaceholder: false,
     },
     {
-      id: 'testimonial-02',
-      tag: 'TESTIMONIAL 02',
+      id: 'testimonial-03',
+      tag: 'TESTIMONIAL 03',
       quote:
         'When it comes to Heer the first thing associated with her is her curiosity and enthusiasm to learn new things. Second thing which I associate with Heer is her energy and ownership level which was one of the very important aspect during her growth in Galaxy Surfactants.',
       name: 'Rakshmith Shetty',
       designation: 'Supply Planner | Team Lead',
       company: 'Galaxy Surfactants Ltd.',
       isPlaceholder: false,
-    },
-    {
-      id: 'testimonial-03',
-      tag: 'TESTIMONIAL 03',
-      quote:
-        '[ADD EY / CONSULTING FEEDBACK — Translated end-to-end supply-planning knowledge into functional replenishment capabilities, working seamlessly with client planners and development teams across 5 global markets.]',
-      name: '[ADD EY / CONSULTING NAME]',
-      designation: 'Engagement Manager — Supply Chain & Operations',
-      company: 'Ernst & Young (EY) Singapore',
-      isPlaceholder: true,
     },
   ];
 
@@ -79,7 +79,7 @@ export const TestimonialsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-stone-800 italic leading-relaxed mb-6 font-serif">
+                <p className="text-xs sm:text-sm text-stone-800 italic leading-relaxed mb-6 font-serif whitespace-pre-line">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
